@@ -1,10 +1,31 @@
 plugins {
     id 'java'
-    id 'idea'
+    id 'com.github.spotbugs' version '5.0.13'
+    id 'checkstyle'
 }
+
+version '1.0'
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/org.easymock/easymock
+    testImplementation group: 'org.easymock', name: 'easymock', version: '5.1.0'
+}
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+    excludeFilter = file('config/spotbugs/spotbugs-exclude.xml')
 }
 
 test {
