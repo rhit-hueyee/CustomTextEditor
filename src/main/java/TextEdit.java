@@ -23,9 +23,9 @@ import java.util.logging.Logger;
 
 //Main window
     public final class TextEdit extends JFrame implements ActionListener {
-       private static JTextArea area;
-       private static JFrame frame;
-       private static int returnValue = 0;
+       private JTextArea area;
+       private JFrame frame;
+       private int returnValue = 0;
 
        public TextEdit() {run();}
 
@@ -71,7 +71,7 @@ import java.util.logging.Logger;
 
        @Override
         public void actionPerformed(ActionEvent e){
-           String ingest = null;
+           StringBuffer ingest = new StringBuffer();
            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
            jfc.setDialogTitle("Choose Destination.");
            jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -86,10 +86,12 @@ import java.util.logging.Logger;
                        Scanner scan = new Scanner(read);
                        while(scan.hasNextLine()) {
                            String line = scan.nextLine() + "\n";
-                           ingest = ingest + line;
+                           //ingest = ingest + line;
+                           ingest.append(line);
                        }
-                       area.setText(ingest);
-                   } catch (FileNotFoundException ex){
+                       area.setText(ingest.toString());
+                       read.close();
+                   } catch (IOException ex){
                        ex.printStackTrace();
                    }
                }
@@ -110,7 +112,7 @@ import java.util.logging.Logger;
            } else if (ae.equals("New")) {
                area.setText("New");
            }  else if (ae.equals("Quit")) {
-               System.exit(0);
+               frame.dispose();
            }
        }
 
