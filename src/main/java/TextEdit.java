@@ -15,12 +15,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-//Main window
+// Main window
 public final class TextEdit extends JFrame implements ActionListener {
     private JTextArea area;
-    private JFrame frame;
-    private int returnValue = 0;
     static final int FRAME_WIDTH = 640;
     static final int FRAME_HEIGHT = 480;
 
@@ -29,23 +26,23 @@ public final class TextEdit extends JFrame implements ActionListener {
     }
 
     public void run() {
-        frame = new JFrame("Text Edit");
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                  | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(TextEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         area = new JTextArea();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(area);
-        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        frame.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(area);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setVisible(true);
 
         buildMenu();
     }
 
-    private void buildMenu(){
+    private void buildMenu() {
         JMenuBar mainMenu = new JMenuBar();
         JMenu menuFile = new JMenu("File");
         JMenuItem menuitemNew = new JMenuItem("New");
@@ -61,10 +58,8 @@ public final class TextEdit extends JFrame implements ActionListener {
         menuFile.add(menuitemSave);
         menuFile.add(menuitemQuit);
         mainMenu.add(menuFile);
-        frame.setJMenuBar(mainMenu);
+        setJMenuBar(mainMenu);
     }
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -84,8 +79,8 @@ public final class TextEdit extends JFrame implements ActionListener {
         }
     }
 
-    private void handleOpen(StringBuffer ingest, JFileChooser jfc){
-        returnValue = jfc.showOpenDialog(null);
+    private void handleOpen(StringBuffer ingest, JFileChooser jfc) {
+        int returnValue = jfc.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File f = jfc.getSelectedFile();
             try (FileReader read = new FileReader(f, StandardCharsets.UTF_8);
@@ -101,8 +96,8 @@ public final class TextEdit extends JFrame implements ActionListener {
         }
     }
 
-    private void handleSave(JFileChooser jfc){
-        returnValue = jfc.showSaveDialog(null);
+    private void handleSave(JFileChooser jfc) {
+        int returnValue = jfc.showSaveDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File f = jfc.getSelectedFile();
             try (FileWriter out = new FileWriter(f, StandardCharsets.UTF_8)) {
@@ -113,16 +108,11 @@ public final class TextEdit extends JFrame implements ActionListener {
         }
     }
 
-    private void handleNew(){
+    private void handleNew() {
         area.setText("New");
     }
 
-    private void handleQuit(){
-        frame.dispose();
+    private void handleQuit() {
+        dispose();
     }
-
-
-
-
 }
-
