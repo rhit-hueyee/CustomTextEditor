@@ -17,7 +17,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-// Main window
+// GUI.Main window
 public final class TextEdit extends JFrame implements ActionListener {
     private JTextArea area;
     static final int FRAME_WIDTH = 640;

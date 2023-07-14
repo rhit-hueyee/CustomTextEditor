@@ -1,3 +1,5 @@
+package GUI;
+
 import GUI.TextEdit;
 
 public class Main {
