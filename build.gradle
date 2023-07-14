@@ -26,9 +26,11 @@ spotbugsMain {
             stylesheet = 'fancy-hist.xsl'
         }
     }
-    excludeFilter = file('config/spotbugs/spotbugs-exclude.xml')
 }
 
 test {
     useJUnitPlatform()
 }
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
