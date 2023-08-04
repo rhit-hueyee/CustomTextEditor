@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.*;
 //import java.awt.*;
 
 public class MainFrame extends JFrame{
@@ -39,6 +40,11 @@ public class MainFrame extends JFrame{
 
     private void createComponents(){
         //These are all other classes for the most part
+        //Menu
+        //Text Editor Component
+        this.add(new TabbedPane(), BorderLayout.CENTER);
+        //Other Components
+        //these also need to be added to the frame
     }
 
 
