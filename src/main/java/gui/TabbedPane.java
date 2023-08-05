@@ -11,7 +11,7 @@ public class TabbedPane extends JPanel {
         JTabbedPane tabbedPane = new JTabbedPane();
 
         //abstract away these components
-        JComponent panel1 = new TextEditComponent("Panel 1");
+        JComponent panel1 = new TextEditComponent();
         //but this line is important to adding to the list
         tabbedPane.addTab("Tab 1", panel1);
 

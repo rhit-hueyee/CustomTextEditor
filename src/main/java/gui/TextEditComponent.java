@@ -1,10 +1,9 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class TextEditComponent extends JPanel {
-    public TextEditComponent(String text){
+    public TextEditComponent(){
         super();
         //Text Editing Menu
         //Text Editor -> this will probably have to be a class that extends JTextComponent, for now, I'm doing a JTextArea
