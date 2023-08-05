@@ -8,6 +8,11 @@ public class TabbedPane extends JPanel {
     public TabbedPane(){
         super(new BorderLayout());
 
+        /* for now, this tabbed pane is meant to act as the switch between each editor type
+        So far there will be textEditor and blockEditor. If other editors and widgets need to be added then
+        they will be added.
+         */
+
         JTabbedPane tabbedPane = new JTabbedPane();
 
         //abstract away these components
