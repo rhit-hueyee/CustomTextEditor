@@ -18,16 +18,9 @@ public class TextEditComponent extends JPanel {
         //set preferred size
         //add toolbar to layout
         //add scroll pane? (not sure if needed)
+        this.add(toolbar, BorderLayout.NORTH);
 
-        JMenuBar textEditMenuBar = new JMenuBar();
-        JMenu textEditMenu = new JMenu("Edit");
-        JMenuItem menuItemFile = new JMenuItem("File");
-        textEditMenu.add(menuItemFile);
-        textEditMenuBar.add(textEditMenu);
-        this.add(textEditMenuBar, BorderLayout.NORTH);
-        /* menuItemFile.addActionListener(this);
-        this panel needs to implement ActionListener but not sure if that is best practice.
-         */
+
 
         //This is where the tabs per each file/block (unsure which I'll choose yet) go
 
@@ -39,17 +32,22 @@ public class TextEditComponent extends JPanel {
         this.add(textArea);
     }
 
+    private static final String[] BUTTON_NAMES = {
+            "Cut", "Copy", "Paste", "Redo", "Undo",
+            "Find", "Replace", "Zoom In", "Zoom Out",
+            "Reset Zoom", "Show All Characters", "Toggle Line Wrap",
+            "Toggle Line Number", "Toggle Indent Display"
+    };
+
     protected void addToolBarButtons(JToolBar toolbar){
-
-
-        //create first button
-        JButton button = makeToolbarButton();
-
-        toolbar.add(button);
+        for (String name : BUTTON_NAMES) {
+            JButton button = makeToolbarButton(name);
+            toolbar.add(button);
+        }
     }
 
-    protected JButton makeToolbarButton() {
-       return new JButton();
+    protected JButton makeToolbarButton(String name) {
+        return new JButton(name);
     }
 
 

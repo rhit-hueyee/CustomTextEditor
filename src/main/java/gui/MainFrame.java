@@ -41,6 +41,7 @@ public class MainFrame extends JFrame{
     private void createComponents(){
         //These are all other classes for the most part
         //Menu
+        this.add(new TextEditWrapper(), BorderLayout.NORTH);
         //Text Editor Component
         this.add(new TabbedPane(), BorderLayout.CENTER);
         //Other Components
