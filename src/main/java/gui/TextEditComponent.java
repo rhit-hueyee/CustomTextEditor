@@ -24,7 +24,7 @@ public class TextEditComponent extends JPanel {
         JMenuItem menuItemFile = new JMenuItem("File");
         textEditMenu.add(menuItemFile);
         textEditMenuBar.add(textEditMenu);
-        this.add(textEditMenuBar);
+        this.add(textEditMenuBar, BorderLayout.NORTH);
         /* menuItemFile.addActionListener(this);
         this panel needs to implement ActionListener but not sure if that is best practice.
          */
@@ -35,7 +35,7 @@ public class TextEditComponent extends JPanel {
         this will probably have to be a class that extends JTextComponent, for now, I'm doing a JTextArea.
         This is where the user define blocks
          */
-        JTextArea textArea = new JTextArea("balls", super.getWidth(), super.getHeight());
+        JTextArea textArea = new JTextArea("balls", super.getHeight(), super.getWidth());
         this.add(textArea);
     }
 
