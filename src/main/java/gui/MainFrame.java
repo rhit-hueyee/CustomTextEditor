@@ -13,7 +13,7 @@ public class MainFrame extends JFrame{
     public MainFrame() {
         //set logic
         //set title
-        this.setTitle("CTE");
+        this.setTitle(Text.getTextFromLocale("Title"));
         //set up CloseHandle
         this.setUpCloseHandler();
         //glass - what is glass?
