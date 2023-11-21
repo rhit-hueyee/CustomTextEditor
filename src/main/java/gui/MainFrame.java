@@ -28,7 +28,7 @@ public class MainFrame extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-//    private void setUpGlass(){
+//    private void setUpGlass(){ //what is glass
 //        this.setGlassPane(new JComponent() {
 //            @Override
 //            public void paintComponent(Graphics g) {

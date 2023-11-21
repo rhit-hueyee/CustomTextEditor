@@ -5,7 +5,7 @@ import java.util.Locale;
 
 public class Launcher {
     //public static final String RESOURCE_DIR ="src/main/resources";
-    private static final String[] LANGUAGES ={"English", "Spanish", "Japanese"};
+    private static final String[] LANGUAGES ={"English", "Spanish", "Japanese"};//this is not sustainable
     private static final Locale[] LOCALES ={Locale.US, new Locale("es", "ES"), new Locale("ja", "JP")};
     public static void main(String[] args){
         //UIManager.put("OptionsPane.isYesLast", true); //no idea what this does lmao
