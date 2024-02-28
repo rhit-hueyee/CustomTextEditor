@@ -1,15 +1,20 @@
 package gui;
 
+import model.LocaleManager;
+import model.Settings;
+
 import javax.swing.*;
 import java.util.Locale;
 
 public class Launcher {
     //public static final String RESOURCE_DIR ="src/main/resources";
-    private static final String[] LANGUAGES ={"English", "Spanish", "Japanese"};//this is not sustainable
-    private static final Locale[] LOCALES ={Locale.US, new Locale("es", "ES"), new Locale("ja", "JP")};
+    private static LocaleManager localeManager;
     public static void main(String[] args){
         //UIManager.put("OptionsPane.isYesLast", true); //no idea what this does lmao
+        Settings settings = Settings.getInstance();
+        localeManager = LocaleManager.getInstance();
         Locale locale = promptLanguage();
+        settings.setLocale(locale);
         Text.init(locale);
         JOptionPane.setDefaultLocale(locale);
         SwingUtilities.invokeLater(() -> {
@@ -27,11 +32,11 @@ public class Launcher {
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                LANGUAGES,
-                LANGUAGES[0]
+                localeManager.getLanguages(),
+                localeManager.getLanguages()[0]
         );
         if (choice == -1) {System.exit(0);}
-        return LOCALES[choice];
+        return  localeManager.getLocale(localeManager.getLanguages()[choice]);
     }
 
 }
