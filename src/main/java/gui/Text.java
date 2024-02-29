@@ -15,7 +15,7 @@ public class Text {
 
     public static String getTextFromLocale(String key, Object... args) {
         if (Text.bundle == null) {throw new IllegalStateException("Text is not initialized");}
-        //This error message needs to be i18n'd
+        //Does this error message need to be i18n'd?
         return MessageFormat.format(Text.bundle.getString(key), args);
     }
 

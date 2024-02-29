@@ -42,7 +42,7 @@ public class TextEditWrapper extends JPanel implements UIChangeListener{
         localeManager.getLanguageMap().forEach((language, locale) -> {
             JMenuItem languageItem = new JMenuItem(language);
             languageItem.addActionListener(e -> {
-                System.out.println("Setting locale to " + locale.getLanguage());
+                //System.out.println("Setting locale to " + locale.getLanguage());
                 settings.setLocale(locale);
                 settings.echoUpdateUI();
                 this.revalidate();
