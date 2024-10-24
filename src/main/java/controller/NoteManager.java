@@ -41,7 +41,8 @@ public class NoteManager {
     }
 
     // Add a new note (this can be called from anywhere, including when loading from XML)
-    public void addNote(String selectedText, String noteText, int selectionStart, int selectionEnd, Color highlightColor) {
+    public void addNote(String selectedText, String noteText, int selectionStart, int selectionEnd,
+                        Color highlightColor) {
         SimpleAttributeSet highlightStyle = new SimpleAttributeSet();
         StyleConstants.setBackground(highlightStyle, highlightColor);
 
@@ -61,7 +62,8 @@ public class NoteManager {
         StyleConstants.setBackground(highlightStyle, note.getHighlightColor());
 
         try {
-            doc.setCharacterAttributes(note.getStartOffset(), note.getEndOffset() - note.getStartOffset(), highlightStyle, false);
+            doc.setCharacterAttributes(note.getStartOffset(),
+                    note.getEndOffset() - note.getStartOffset(), highlightStyle, false);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -133,7 +135,8 @@ public class NoteManager {
     }
 
     public void updateNote(Note note, int newStart, int newEnd, Color newColor) {
-        doc.setCharacterAttributes(note.getStartOffset(), note.getEndOffset() - note.getStartOffset(), new SimpleAttributeSet(), true);
+        doc.setCharacterAttributes(note.getStartOffset(),
+                note.getEndOffset() - note.getStartOffset(), new SimpleAttributeSet(), true);
 
         note.setStartOffset(newStart);
         note.setEndOffset(newEnd);
@@ -148,5 +151,9 @@ public class NoteManager {
         }
 
         sortNotesByStartPosition();
+    }
+
+    public DefaultListModel<Note> getNoteListModel() {
+        return noteListModel;
     }
 }
